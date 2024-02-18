@@ -8,7 +8,7 @@ import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.FetchType.EAGER;
 import static jakarta.persistence.EnumType.STRING;
 
-@Entity(name = "'order'")
+@Entity(name = "orders")
 @Data
 public class Order extends BaseEntity{
 
