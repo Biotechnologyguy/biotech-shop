@@ -1,25 +1,31 @@
 package com.app.store.entity;
 
-import com.app.store.utils.Gender;
-import com.app.store.utils.UserRole;
+import com.app.store.utils.enums.Gender;
+import com.app.store.utils.enums.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import lombok.Data;
+
 import java.time.LocalDate;
 
 import static jakarta.persistence.EnumType.STRING;
 
 @Data
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"email"}, name = "uniqueEmailConstraint"),
+        @UniqueConstraint(columnNames = {"userName"}, name = "uniqueUsernameConstraint"),
+        @UniqueConstraint(columnNames = {"mobileNumber"}, name = "uniqueMobileNumberConstraint")
+})
 @Entity(name = "users")
 public class User extends BaseEntity {
 
 
-    @Column(name = "user_name", unique = true, length = 45)
+    @Column(name = "user_name", length = 45)
     @NotBlank(message = "User name is required")
     private String userName;
 
-    @Column(name = "email", unique = true, length = 45)
+    @Column(name = "email", length = 45)
     @NotBlank(message = "Email is required")
     private String email;
 
@@ -46,7 +52,7 @@ public class User extends BaseEntity {
     @Column(name = "date_of_birth", columnDefinition = "DATE")
     private LocalDate dateOfBirth;
 
-    @Column(name = "mobile_number", unique = true, length = 10)
+    @Column(name = "mobile_number", length = 10)
     @NotBlank(message = "Mobile number is required")
     private String mobileNumber;
 

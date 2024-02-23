@@ -1,7 +1,7 @@
 package com.app.store.entity;
 
-import com.app.store.utils.PaymentStatus;
-import com.app.store.utils.PaymentType;
+import com.app.store.utils.enums.PaymentStatus;
+import com.app.store.utils.enums.PaymentType;
 import jakarta.persistence.*;
 import lombok.Data;
 

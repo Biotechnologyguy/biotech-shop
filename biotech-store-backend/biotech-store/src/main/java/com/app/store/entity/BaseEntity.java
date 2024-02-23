@@ -31,8 +31,9 @@ public class BaseEntity {
     @Column(name = "created_by")
     private String createdBy;
 
+    @Default
     @Column(name = "updated_dt")
-    private LocalDate updatedDt;
+    private LocalDate updatedDt=now();
 
     @Column(name = "updated_by")
     private String updatedBy;

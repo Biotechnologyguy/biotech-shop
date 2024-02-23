@@ -1,6 +1,6 @@
 package com.app.store.entity;
 
-import com.app.store.utils.OrderStatus;
+import com.app.store.utils.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 

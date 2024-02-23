@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Arrays;
 import java.util.Collection;
 
-@SuppressWarnings("serial")
 @ToString
 public class CustomUserDetails implements UserDetails {
 	private User user;
