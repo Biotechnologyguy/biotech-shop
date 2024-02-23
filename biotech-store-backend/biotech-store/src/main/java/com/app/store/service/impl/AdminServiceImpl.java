@@ -7,6 +7,7 @@ import com.app.store.service.IAdminService;
 import com.app.store.utils.exceptions.CustomUniqueConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -18,11 +19,16 @@ public class AdminServiceImpl implements IAdminService {
     @Autowired
     private IUserRepository userRepository;
 
+    @Autowired
     private CustomUserDetailsService customUserDetailsService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public User addUser(User user) throws CustomUniqueConstraintViolationException{
         try {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             return userRepository.save(user);
         } catch (DataIntegrityViolationException e) {
             String rootMsg = e.getRootCause().getMessage();

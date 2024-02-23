@@ -5,6 +5,7 @@ import com.app.store.utils.enums.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
+import lombok.Builder.Default;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -39,7 +40,7 @@ public class User extends BaseEntity {
     @Column(name = "last_name", length = 45)
     private String lastName;
 
-    @Column(name = "is_active", columnDefinition = "boolean default true")
+    @Column(name = "is_active")
     private Boolean isActive;
 
     @Column(name = "display_picture", length = 100)
