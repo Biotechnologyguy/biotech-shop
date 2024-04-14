@@ -1,4 +1,4 @@
 # biotech-shop
 
-## Frontend - Next.js
-## Backend - Springboot
+### Frontend - Next.js
+### Backend - Springboot
